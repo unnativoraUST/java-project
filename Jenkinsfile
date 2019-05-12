@@ -14,4 +14,8 @@ node("linux")
   {
     sh "aws s3 cp /workspace/java-pipeline/dist/rectangle-${BUILD_NUMBER}.jar s3://unnati-final"
   }
+  stage("Report")
+  {
+    sh "aws cloudformation describe- stack-resources --region us-east-1 --stack-name Jenkins"
+  }
 }
