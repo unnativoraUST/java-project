@@ -10,4 +10,8 @@ node("linux")
   {
     sh "ant -f build.xml -v"
   }
+  stage("Deoploy")
+  {
+    sh "aws s3 cp /workspace/java-pipeline/dist/rectangle-${BUILD_NUMBER}.jar s3://unnati-final"
+  }
 }
